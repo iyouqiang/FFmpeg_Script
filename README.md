@@ -53,6 +53,7 @@ build-ffmpeg-armeabi-x264.sh 编译出FFmpeg可以视频编解码的库
 1、创建工程时需要选择c++支持
 2、将编译好的库放在main目录下: main/jniLibs/(armeabi和include)
 3、库引入->CmakeLists.txt->加入此行下面即可：cmake_minimum_required(VERSION 3.4.1) 
+```
 # FFMpeg配置
 # FFmpeg配置目录
 set(distribution_DIR ${CMAKE_SOURCE_DIR}/../../../../src/main/jniLibs)
@@ -172,12 +173,13 @@ target_link_libraries( # Specifies the target library.
                        # Links the target library to the log library
                        # included in the NDK.
                        ${log-lib} )
-
+```
 4、build.gradle文件配置
-
+```
         externalNativeBuild {
             cmake {
                 cppFlags "-frtti -fexceptions"
                 abiFilters 'armeabi'
             }
         }
+```
